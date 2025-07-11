@@ -2,14 +2,20 @@
 // import "izitoast/dist/css/iziToast.min.css";
 
 
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
 /**
  * createGallery(images). Ця функція повинна приймати масив images, створювати HTML-розмітку для 
  * галереї, додавати її в контейнер галереї та викликати метод екземпляра SimpleLightbox refresh(). 
  * Нічого не повертає.
  */
 
-function createGallery(images) {
+export function createGallery(images) {
+    return images.map(img => {
 
+    })
 }
 
 

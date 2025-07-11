@@ -6,7 +6,13 @@
 
 // import icon from '../img/error.svg'
 
+import axios from "axios";
 
+
+// axios.get('/users')
+//     .then(res => {
+//         console.log(res.data);
+//     });
 
 
 
@@ -15,6 +21,21 @@
  * здійснювати HTTP-запит і повертати значення властивості data з отриманої відповіді.
  */
 
-function getImagesByQuery(query) {
-
+export function getImagesByQuery(query) {
+    axios.get("https://jsonplaceholder.typicode.com/users", {
+        params: {
+            key: '',
+            q: query,
+            image_type: 'photo',
+            orientation: 'horizontal',
+            safesearch: true
+        }
+    })
+        .then(res => {
+            console.log(res.data);
+        });
 }
+
+getImagesByQuery('value')
+
+
