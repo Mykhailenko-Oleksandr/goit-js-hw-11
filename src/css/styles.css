@@ -9,6 +9,7 @@
 @import url('./base.css');
 @import url('./container.css');
 @import url('./animations.css');
+@import url('./loader.css');
 
 .form {
   display: flex;
@@ -64,4 +65,63 @@
   &:hover {
     background-color: #6c8cff;
   }
+}
+
+.gallery {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.gallery-item {
+  position: relative;
+  border: 1px solid #808080;
+}
+
+.gallery-link {
+}
+
+.gallery-image {
+  width: 360px;
+  height: 200px;
+}
+
+.gallery-item-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  padding: 4px 25px 4px 20px;
+
+  background-color: #fff;
+}
+
+.gallery-item-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-item-list-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.gallery-item-list-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }

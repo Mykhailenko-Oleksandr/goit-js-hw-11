@@ -1,4 +1,10 @@
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
 import { getImagesByQuery } from "./js/pixabay-api"
+import { clearGallery, createGallery, hideLoader, showLoader } from "./js/render-functions";
+
+import icon from './img/error.svg';
 
 const form = document.querySelector('.form')
 
@@ -10,13 +16,31 @@ function onFormSubmit(event) {
     const value = form.elements['search-text'].value
 
     if (value.trim() === '') {
-        console.log('ok');
         return;
     }
 
-    const resultBackend = getImagesByQuery(value);
+    clearGallery();
+    showLoader();
 
-    if (resultBackend.lenght) {
-        alert('')
-    }
+    getImagesByQuery(value)
+        .then(data => {
+            if (data.hits.length === 0) {
+                iziToast.error({
+                    class: 'izi-toast',
+                    message: "Sorry, there are no images matching <br/>your search query. Please try again!",
+                    messageColor: '#fff',
+                    messageSize: '16',
+                    messageLineHeight: '24',
+                    backgroundColor: '#ef4040',
+                    iconUrl: icon,
+                    position: 'topRight',
+                    progressBarColor: '#b51b1b',
+                    theme: 'dark',
+                });
+            };
+
+            hideLoader();
+            createGallery(data.hits);
+    })
+
 }
