@@ -1,5 +1,4 @@
 import axios from "axios";
-import { showLoader } from "./render-functions";
 import iziToast from "izitoast";
 import icon from '../img/error.svg';
 
@@ -13,8 +12,8 @@ export function getImagesByQuery(query) {
             orientation: 'horizontal',
             safesearch: true
         }
-    })
-        .then(res => {
+   })
+       .then(res => {
             return res.data;
         })
        .catch(error => {
