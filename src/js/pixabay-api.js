@@ -16,18 +16,4 @@ export function getImagesByQuery(query) {
        .then(res => {
             return res.data;
         })
-       .catch(error => {
-        return iziToast.error({
-            class: 'izi-toast',
-            message: error.message,
-            messageColor: '#fff',
-            messageSize: '16',
-            messageLineHeight: '24',
-            backgroundColor: '#ef4040',
-            iconUrl: icon,
-            position: 'topRight',
-            progressBarColor: '#b51b1b',
-            theme: 'dark',
-        })
-    })
 }

@@ -52,9 +52,9 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-loader.classList.add('loader')
+loader.classList.add('is-visible')
 }
 
 export function hideLoader() {
-loader.classList.remove('loader')
+loader.classList.remove('is-visible')
 }

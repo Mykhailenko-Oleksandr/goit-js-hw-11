@@ -1,4 +1,4 @@
-.loader {
+.is-visible {
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -11,8 +11,8 @@
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
-.loader::after,
-.loader::before {
+.is-visible::after,
+.is-visible::before {
   content: '';
   box-sizing: border-box;
   position: absolute;
@@ -24,7 +24,7 @@
   transform: translate(150%, 150%);
   border-radius: 50%;
 }
-.loader::before {
+.is-visible::before {
   left: auto;
   top: auto;
   right: 0;

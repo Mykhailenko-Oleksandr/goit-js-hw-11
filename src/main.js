@@ -16,7 +16,18 @@ function onFormSubmit(event) {
     const value = form.elements['search-text'].value
 
     if (value.trim() === '') {
-        return;
+     return iziToast.error({
+            class: 'izi-toast',
+            message: "You have not entered anything in the search!",
+            messageColor: '#fff',
+            messageSize: '16',
+            messageLineHeight: '24',
+            backgroundColor: '#ef4040',
+            iconUrl: icon,
+            position: 'topRight',
+            progressBarColor: '#b51b1b',
+            theme: 'dark',
+        });
     }
 
     clearGallery();
@@ -41,6 +52,22 @@ function onFormSubmit(event) {
 
             hideLoader();
             createGallery(data.hits);
-    })
+        })
+        .catch(error => {
+            hideLoader();
+            
+            return iziToast.error({
+                class: 'izi-toast',
+                message: error.message,
+                messageColor: '#fff',
+                messageSize: '16',
+                messageLineHeight: '24',
+                backgroundColor: '#ef4040',
+                iconUrl: icon,
+                position: 'topRight',
+                progressBarColor: '#b51b1b',
+                theme: 'dark',
+            })
+        })
 
 }
