@@ -12,7 +12,7 @@ let modalImg = new SimpleLightbox('.gallery a', {
 })
 
 export function createGallery(images) {
-    const marcup = images.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
+    const galleryMarkup = images.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
 <li class="gallery-item">
  <a class="gallery-link" href="${largeImageURL}" >
            <img
@@ -42,7 +42,7 @@ export function createGallery(images) {
 </li> `
   ).join('');
   
-  gallery.insertAdjacentHTML('beforeend', marcup);
+  gallery.insertAdjacentHTML('beforeend', galleryMarkup);
     
   modalImg.refresh();
 }

@@ -13,9 +13,9 @@ form.addEventListener('submit', onFormSubmit)
 function onFormSubmit(event) {
     event.preventDefault()
 
-    const value = form.elements['search-text'].value
+    const value = form.elements['search-text'].value.trim();
 
-    if (value.trim() === '') {
+    if (value === '') {
      return iziToast.error({
             class: 'izi-toast',
             message: "You have not entered anything in the search!",
@@ -36,7 +36,7 @@ function onFormSubmit(event) {
     getImagesByQuery(value)
         .then(data => {
             if (data.hits.length === 0) {
-                iziToast.error({
+               return iziToast.error({
                     class: 'izi-toast',
                     message: "Sorry, there are no images matching <br/>your search query. Please try again!",
                     messageColor: '#fff',
@@ -48,14 +48,11 @@ function onFormSubmit(event) {
                     progressBarColor: '#b51b1b',
                     theme: 'dark',
                 });
-            };
-
-            hideLoader();
-            createGallery(data.hits);
+            } else {
+                createGallery(data.hits);
+            }
         })
         .catch(error => {
-            hideLoader();
-            
             return iziToast.error({
                 class: 'izi-toast',
                 message: error.message,
@@ -69,5 +66,8 @@ function onFormSubmit(event) {
                 theme: 'dark',
             })
         })
+        .finally(() => {
+            hideLoader();
+    })
 
 }

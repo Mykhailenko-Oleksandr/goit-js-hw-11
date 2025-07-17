@@ -1,6 +1,4 @@
 import axios from "axios";
-import iziToast from "izitoast";
-import icon from '../img/error.svg';
 
 export function getImagesByQuery(query) {
     
